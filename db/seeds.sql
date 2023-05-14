@@ -28,4 +28,3 @@ VALUES
 ('Andy', 'Howson', 6, 5),
 ('Rafael', 'Ninturtle', 7, null),
 ('Duke', 'Nukem', 8, 7);
-
