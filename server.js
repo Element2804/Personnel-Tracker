@@ -19,7 +19,7 @@ const connection = mysql.createConnection(
 console.log("test")
 );
 
-myConnect.connect((err) => {
+connection.connect((err) => {
     if (err) throw (err)
     console.log("connected with" + myConnect.threadID);
 
