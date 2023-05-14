@@ -21,7 +21,7 @@ console.log("test")
 
 connection.connect((err) => {
     if (err) throw (err)
-    console.log("connected with" + myConnect.threadID);
+    console.log("connected with" + connection.threadID);
 
   start();
 });
