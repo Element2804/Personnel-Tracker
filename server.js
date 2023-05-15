@@ -16,12 +16,12 @@ const connection = mysql.createConnection(
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
 },
-console.log("test")
+// console.log("test")
 );
 
 connection.connect((err) => {
     if (err) throw (err)
-    console.log("connected with" + connection.threadID);
+   
 
   start();
 });
@@ -31,11 +31,11 @@ function start() {
       .prompt({       
         name: "action",
         type: "list",
-        message: "What would you like to do Today?",
+        message: "What would you like to do?",
         choices: [
-          "View All Employees",
-          "View All Roles",
-          "View All Departments",
+          "View Employees",
+          "View Roles",
+          "View Departments",
           "Add Employee",
           "Add Role",
           "Add Department",
@@ -48,18 +48,18 @@ function start() {
       })
       .then((answer) => {
             switch (answer.action) {
-          case "View All Employees":
-            viewAllEmployees();
+          case "View Employees":
+            viewEmployees();
             break;
-          case "View All Roles":
-            viewAllRoles();
+          case "View Roles":
+            viewRoles();
             break;
-          case "View All Departments": 
-            viewAllDepartments();
+          case "View Departments": 
+            viewDepartments();
             break;
-            case "Add Employee":
+          case "Add Employee":
           addEmployee();
-          break;
+            break;
           case "Add Role":
           addRole();
           break;
@@ -72,8 +72,18 @@ function start() {
     });
 }
 
-function viewAllEmployees() {
-    const query = `SELECT * FROM employee
+function viewEmployees() {
+    const query = `SELECT * FROM employees
+            `;
+    connection.query(query, (err, res) => {
+      if (err) throw err;
+      console.table(res);
+      start();
+    });
+  }
+
+function viewRoles() {
+    const query = `SELECT * FROM role
             `;
     connection.query(query, (err, res) => {
       if (err) throw err;
