@@ -213,8 +213,7 @@ function viewDepartments() {
             connection.query("INSERT INTO department SET ?",
               {
                 name: answers.title,
-               
-                              
+                                            
               },
              
               (err, res) => {
@@ -242,13 +241,8 @@ function viewDepartments() {
           ])
           .then((answers) => {
        
-            connection.query(`UPDATE employees SET role_id = ? WHERE id = ?`,
-              {
-                employee_id: answers.emp_id,
-                role_id: answers.role_id
-                      
-                              
-              },
+            connection.query("UPDATE employees SET role_id = ? WHERE id = ?",
+            [answers.role_id, answers.emp_id],
                          
               (err, res) => {
                 if (err) throw err;
