@@ -40,9 +40,6 @@ function start() {
           "Add Role",
           "Add Department",
           "Update Employee Role",
-          "Remove Employee",
-          "Remove Department",
-          "Remove Role",
           "Quit",
         ],
       })
